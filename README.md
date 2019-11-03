@@ -5,7 +5,7 @@ This action deploys AWS SAM Stacks through yaml files.
 ## Usage
 
 ```yml
-name: "Deploy CloudFormation Stack"
+name: "Deploy SAM Stack"
 on: 
   push:
     branches:
