@@ -3,14 +3,14 @@
 set -e
 
 if [[ -z "$TEMPLATE" ]]; then
-    echo "Empty template specified. Looking for template.yml..."
+    echo "Empty template specified. Looking for template.yaml..."
 
-    if [[ ! -f "template.yml" ]]; then
-        echo template.yml not found
+    if [[ ! -f "template.yaml" ]]; then
+        echo template.yaml not found
         exit 1
     fi
 
-    TEMPLATE="template.yml"
+    TEMPLATE="template.yaml"
 fi
 
 if [[ -z "$AWS_STACK_NAME" ]]; then
