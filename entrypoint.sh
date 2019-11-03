@@ -75,10 +75,10 @@ echo "[default]
 output = text
 region = $AWS_REGION" > ~/.aws/config
 
-echo "Installing packages"
-for d in */ ; do
-    cd $d && npm install --no-package-lock && cd ..
-done
+# echo "Installing packages"
+# for d in */ ; do
+#     cd $d && npm install --no-package-lock && cd ..
+# done
 
 aws cloudformation package --template-file $TEMPLATE --output-template-file serverless-output.yaml --s3-bucket $AWS_DEPLOY_BUCKET $AWS_BUCKET_PREFIX $FORCE_UPLOAD $USE_JSON
 aws cloudformation deploy --template-file serverless-output.yaml --stack-name $AWS_STACK_NAME $CAPABILITIES $PARAMETER_OVERRIDES
