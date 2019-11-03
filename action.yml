@@ -2,7 +2,7 @@ name: 'SAM Deploy Action'
 description: 'Deploy AWS SAM Stack'
 branding:
   icon: 'upload-cloud'
-  color: 'orange'
+  color: 'blue'
 runs:
   using: 'docker'
   image: 'Dockerfile'
