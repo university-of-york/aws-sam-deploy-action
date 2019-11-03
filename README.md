@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: mgenteluci/cloudformation-deploy-action@v1.3.0
+    - uses: r0zar/cloudformation-deploy-action
       env:
-        TEMPLATE: 'template.yml'
-        AWS_STACK_NAME: 'my-stack'
+        TEMPLATE: 'template.yaml'
+        AWS_STACK_NAME: ${GITHUB_REPOSITORY}
         AWS_REGION: 'us-east-1'
         AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
         AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
