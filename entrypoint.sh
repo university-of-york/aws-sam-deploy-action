@@ -80,5 +80,5 @@ done
 
 npm init -y
 npm install aws-sam-local
-sam package --template-file $TEMPLATE --output-template-file serverless-output.yaml --s3-bucket $AWS_DEPLOY_BUCKET $AWS_BUCKET_PREFIX $FORCE_UPLOAD $USE_JSON
-sam deploy --template-file serverless-output.yaml --stack-name $AWS_STACK_NAME $CAPABILITIES $PARAMETER_OVERRIDES
+node_modules/aws-sam-local/node_modules/.bin/sam package --template-file $TEMPLATE --output-template-file serverless-output.yaml --s3-bucket $AWS_DEPLOY_BUCKET $AWS_BUCKET_PREFIX $FORCE_UPLOAD $USE_JSON
+node_modules/aws-sam-local/node_modules/.bin/sam deploy --template-file serverless-output.yaml --stack-name $AWS_STACK_NAME $CAPABILITIES $PARAMETER_OVERRIDES
