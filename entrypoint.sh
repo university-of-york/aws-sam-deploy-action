@@ -74,7 +74,6 @@ output = text
 region = $AWS_REGION" > ~/.aws/config
 
 echo "Installing packages"
-npm install
 for d in */ ; do
     cd $d && npm install --no-package-lock && cd ..
 done
