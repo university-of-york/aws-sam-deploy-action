@@ -11,7 +11,7 @@ LABEL repository="https://github.com/r0zar/sam-deploy-action"
 LABEL homepage="https://github.com/r0zar/sam-deploy-action"
 LABEL maintainer="Ross Ragsdale <ross.ragsdale@gmail.com>"
 
-RUN apt-get update && apt-get install -y awscli
+RUN apt-get update && apt-get install -y awscli && pip install --user aws-sam-cli
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
