@@ -1,5 +1,5 @@
-name: 'CloudFormation Deploy Action'
-description: 'Deploy AWS CloudFormation Stack'
+name: 'SAM Deploy Action'
+description: 'Deploy AWS SAM Stack'
 branding:
   icon: 'upload-cloud'
   color: 'orange'
