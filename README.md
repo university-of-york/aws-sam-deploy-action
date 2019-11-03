@@ -1,6 +1,6 @@
-# CloudFormation Deploy Action
+# SAM Deploy Action
 
-This action deploys AWS CloudFormation Stacks through yml files.
+This action deploys AWS SAM Stacks through yaml files.
 
 ## Usage
 
@@ -57,10 +57,6 @@ jobs:
 * `TAGS` - [Optional]. Tags for the stack.
   * Type: `string | list[string]`
   * Syntax: `env=prod` `env=prod team=innovation-lab`
-
-### Examples
-
-* An implementation example can be found [here](https://github.com/MGenteluci/aws-sqs-cloudformation).
 
 ### License
 
