@@ -24,6 +24,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
         AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         AWS_DEPLOY_BUCKET: ${{secrets.AWS_DEPLOY_BUCKET}}
+        TAGS: 'env=prod'
 ```
 
 ### Environment Variables
@@ -53,6 +54,9 @@ jobs:
 * `PARAMETER_OVERRIDES` - [Optional]. Parameters to input in the template.
   * Type: `string | list[string]`
   * Syntax: `AliasName=prod` `AliasName=prod ApiUrl=https://api.com/api/v1`
+* `TAGS` - [Optional]. Tags for the stack.
+  * Type: `string | list[string]`
+  * Syntax: `env=prod` `env=prod team=innovation-lab`
 
 ### Examples
 
