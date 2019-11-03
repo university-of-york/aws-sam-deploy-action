@@ -5,7 +5,7 @@ This action deploys AWS SAM Stacks through yaml files.
 ## Usage
 
 ```yml
-name: "Deploy SAM Stack"
+name: "Deploy SAM Stack to Production"
 on: 
   push:
     branches:
@@ -16,14 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: for d in */ ; do cd $d && npm install --no-package-lock --loglevel=error && cd .. ; done
     - uses: r0zar/sam-deploy-action@v1.0
       env:
         TEMPLATE: 'template.yaml'
-        AWS_STACK_NAME: ${GITHUB_REPOSITORY}
+        AWS_STACK_NAME: prod-${{ github.actor }}-resourceful
         AWS_REGION: 'us-east-1'
-        AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-        AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-        AWS_DEPLOY_BUCKET: ${{secrets.AWS_DEPLOY_BUCKET}}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEPLOY_BUCKET: ${{ secrets.AWS_DEPLOY_BUCKET }}
 ```
 
 ### Environment Variables
