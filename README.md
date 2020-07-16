@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: '10.x'
     - run: for d in */ ; do cd $d && npm install --no-package-lock --loglevel=error && cd .. ; done
-    - uses: r0zar/sam-deploy-action@v1.0
+    - uses: university-of-york/aws-sam-deploy-action@v1.0
       env:
         TEMPLATE: 'template.yaml'
         AWS_STACK_NAME: prod-${{ github.actor }}-resourceful
@@ -57,6 +57,11 @@ jobs:
 * `PARAMETER_OVERRIDES` - [Optional]. Parameters to input in the template.
   * Type: `string | list[string]`
   * Syntax: `AliasName=prod` `AliasName=prod ApiUrl=https://api.com/api/v1`
+* `TAGS` - [Optional]. Tags to assign.
+  * Type: `string | list[string]`
+  * Syntax: `Environment=prod` `Name=infrastructure`
+* `ROLE_ARN` - [Optional]. The full role ARN to use for the deploy step
+  * Type: `string`
   
 ### Examples
 
