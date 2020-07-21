@@ -14,7 +14,7 @@ LABEL maintainer="Dan Miller <dan.miller@york.ac.uk>"
 ENV TZ=Europe/London
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get update && apt-get install -y awscli
+RUN apt-get update && apt-get install -y awscli jq
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

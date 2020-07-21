@@ -60,6 +60,10 @@ if [[ ! -z "$PARAMETER_OVERRIDES" ]]; then
     PARAMETER_OVERRIDES="--parameter-overrides $PARAMETER_OVERRIDES"
 fi
 
+if [[ ! -z "$PARAMETER_FILE" ]]; then
+    PARAMETER_OVERRIDES="--parameter-overrides $(jq -r 'to_entries[] | "\(.key)=\"\(.value)\""' $PARAMETER_FILE | tr '\r\n' ' ')"
+fi
+
 if [[ ! -z "$TAGS" ]]; then
   TAGS="--tags $TAGS"
 fi
@@ -82,4 +86,6 @@ output = text
 region = $AWS_REGION" > ~/.aws/config
 
 aws cloudformation package --template-file $TEMPLATE --output-template-file serverless-output.yaml --s3-bucket $AWS_DEPLOY_BUCKET $AWS_BUCKET_PREFIX $FORCE_UPLOAD $USE_JSON
-aws cloudformation deploy --template-file serverless-output.yaml --stack-name $AWS_STACK_NAME $CAPABILITIES $PARAMETER_OVERRIDES $TAGS $ROLE_ARN --no-fail-on-empty-changeset
+
+array=(aws cloudformation deploy --template-file serverless-output.yaml --stack-name $AWS_STACK_NAME $PARAMETER_OVERRIDES $CAPABILITIES $TAGS $ROLE_ARN --no-fail-on-empty-changeset)
+eval $(echo ${array[@]})
