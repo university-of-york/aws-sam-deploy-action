@@ -60,6 +60,10 @@ if [[ ! -z "$PARAMETER_OVERRIDES" ]]; then
     PARAMETER_OVERRIDES="--parameter-overrides $PARAMETER_OVERRIDES"
 fi
 
+if [[ ! -z "$PARAMETER_FILE" ]]; then
+    PARAMETER_OVERRIDES="--parameter-overrides $(jq -r 'to_entries[] | "\(.key)=\"\(.value)\""' $PARAMETER_FILE | tr '\r\n' ' ')"
+fi
+
 if [[ ! -z "$TAGS" ]]; then
   TAGS="--tags $TAGS"
 fi

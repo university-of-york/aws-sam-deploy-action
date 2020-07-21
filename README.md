@@ -57,6 +57,8 @@ jobs:
 * `PARAMETER_OVERRIDES` - [Optional]. Parameters to input in the template.
   * Type: `string | list[string]`
   * Syntax: `AliasName=prod` `AliasName=prod ApiUrl=https://api.com/api/v1`
+* `PARAMETER_FILE` - [Optional]. Relative path to a JSON config file. Prioritised over PARAMETER_OVERRIDES
+  * Type: `string`
 * `TAGS` - [Optional]. Tags to assign.
   * Type: `string | list[string]`
   * Syntax: `Environment=prod` `Name=infrastructure`
