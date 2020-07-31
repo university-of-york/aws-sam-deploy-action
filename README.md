@@ -34,7 +34,7 @@ jobs:
 
 * `TEMPLATE` - [Optional]. YML file containing CloudFormation Stack.
   * Type: `string`
-  * Default: `template.yml`
+  * Default: `template.yaml`
 * `CAPABILITIES` - [Optional]. AWS Stack Capabilites.
   * Type: `string`
   * Default: `CAPABILITY_IAM`
