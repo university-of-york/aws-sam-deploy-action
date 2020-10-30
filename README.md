@@ -36,7 +36,8 @@ jobs:
   * Type: `string`
   * Default: `template.yaml`
 * `CAPABILITIES` - [Optional]. AWS Stack Capabilites.
-  * Type: `string`
+  * Type: `string | list[string]`
+  * Syntax: e.g. `CAPABILITY_IAM` `CAPABILITY_AUTO_EXPAND`
   * Default: `CAPABILITY_IAM`
 * `AWS_STACK_NAME` - [**Required**]. The Stack name that is going to be published.
   * Type: `string`
